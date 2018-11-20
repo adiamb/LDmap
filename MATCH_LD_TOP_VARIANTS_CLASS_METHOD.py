@@ -38,7 +38,7 @@ class LD_map(object):
 	instance_count =0
 
 	def __init__(self, name, meta, ldfile, reffile, snpfile, outfile):
-		"""intitate the sseq object class."""
+		"""intitate the LDmap object class."""
 		self.name = name
 		self.ldfile = ldfile
 		self.reffile =reffile
