@@ -19,11 +19,11 @@ parser.add_argument('-outfile', required=True, help='full path to an outfile NO 
 ### parse the arguments
 args=parser.parse_args()
 ldfile = args.ld
-refldfile = arg.refld
-snpfile = arg.snplist
-meta = arg.meta
-chrnum =arg.chrnum
-outfile = arg.outfile
+refldfile = args.refld
+snpfile = args.snplist
+meta = args.meta
+chrnum =args.chrnum
+outfile = args.outfile
 
 ####### define the LDmap as an object ########
 class LD_map(object):
