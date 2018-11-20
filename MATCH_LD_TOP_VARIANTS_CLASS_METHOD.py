@@ -25,7 +25,7 @@ meta = arg.meta
 chrnum =arg.chrnum
 outfile = arg.outfile
 
-####### define the sseq as an object ########
+####### define the LDmap as an object ########
 class LD_map(object):
 	"""A class of an LD object:
 
