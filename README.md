@@ -1,5 +1,5 @@
 # LDmap
-A class method to map LD structure of top snps with 1000genomes and further indicate if top snps from GWAS meta were genotyped or not
+A class method to map LD structure of top snps with 1000genomes and further indicate if top snps from GWAS meta were genotyped or imputed
 # Example command
 ```
 python MATCH_LD_TOP_VARIANTS_CLASS_METHOD.py -meta CHR2_LDSCRIPT_TEST_NOV2018.meta \
