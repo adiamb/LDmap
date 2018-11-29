@@ -37,7 +37,7 @@ class LD_map(object):
 	"""
 	instance_count =0
 
-	def __init__(self, name, meta, ldfile, reffile, snpfile, outfile):
+	def __init__(self, name, meta, ldfile, reffile, snpfile, outfile, chrnum):
 		"""intitate the LDmap object class."""
 		self.name = name
 		self.ldfile = ldfile
@@ -189,7 +189,7 @@ class LD_map(object):
 		outfile.close()
 
 if __name__ == '__main__':
-	LD_object = LD_map(name=str(chrnum)+'LD', meta=meta, ldfile=ldfile, reffile=refldfile, snpfile=snpfile, outfile=outfile)
+	LD_object = LD_map(name=str(chrnum)+'LD', meta=meta, ldfile=ldfile, reffile=refldfile, snpfile=snpfile, outfile=outfile, chrnum=chrnum)
 	LD_object.get_attr()
 	LD_object.process_loci()
 
