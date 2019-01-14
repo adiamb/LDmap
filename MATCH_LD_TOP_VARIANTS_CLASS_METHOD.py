@@ -7,6 +7,7 @@ import argparse
 import datetime
 import os
 import numpy as np
+from collections import defaultdict
 dttime=datetime.datetime.now().strftime ("%Y%m%d")
 
 parser = argparse.ArgumentParser(description='A class method to map LD structure of top snps with 1000genomes and further indicate if top snps from GWAS meta were genotyped or not')
@@ -53,7 +54,7 @@ class LD_map(object):
 
 	@staticmethod
 	def process_ldlist(file, threshold):
-		LD_snps = {}	
+		LD_snps = defaultdict(str)	
 		with open(file) as ld_in:
 			for n, line in enumerate(ld_in):
 				if n > 0:
@@ -62,16 +63,13 @@ class LD_map(object):
 					make_key = line_parse[2]
 					make_val = ','.join(line_parse[5:])
 					if float(line_parse[6]) >= threshold:
-						if make_key in LD_snps:
-							get_snp = LD_snps.get(make_key)
-							LD_snps[make_key] = get_snp + '$'+make_val
-						else:
-							LD_snps[make_key] = make_val
+						LD_snps[make_key] = '$'+make_val
+						
 		return LD_snps
 
 	#@staticmethod
 	def process_snplist(self):
-		genotyped_dic={}
+		genotyped_dic=defaultdict(str)
 		with open(self.snpfile) as snplist:
 			for file in snplist:
 				file = file.strip()
@@ -80,11 +78,8 @@ class LD_map(object):
 					with open(file) as snplist_in:
 						for line in snplist_in:
 							line_parse= line.strip()
-							if line_parse in genotyped_dic:
-								get_gen = genotyped_dic.get(line_parse)
-								genotyped_dic[line_parse] = get_gen + '&' + mak_name
-							else:
-								genotyped_dic[line_parse] = mak_name
+							genotyped_dic[line_parse] = '&' + mak_name
+							
 		return genotyped_dic
 
 	@staticmethod
